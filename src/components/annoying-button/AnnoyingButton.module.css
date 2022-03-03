@@ -5,8 +5,8 @@
 
 .annoying-btn button {
   position: fixed;
-  left: 50%;
-  top: 50%;
+  left: calc(50% - 4rem);
+  top: calc(50% - 1rem);
   width: 8rem;
   height: 2rem;
 }

@@ -1,0 +1,31 @@
+.form-control {
+  font-size: 1rem;
+  width: 24rem;
+  margin-bottom: 1.4rem;
+}
+
+.form-control label {
+  display: inline-block;
+  width: 8rem;
+}
+
+.form-control input {
+  width: 16rem;
+}
+
+.note {
+  font-size: 0.8rem;
+}
+
+.validation-text {
+  font-size: 0.8rem;
+  color: darkred;
+}
+
+.form button {
+  position: relative;
+  left: 65%;
+  height: 2rem;
+  width: 8rem;
+  border-radius: 3px;
+}

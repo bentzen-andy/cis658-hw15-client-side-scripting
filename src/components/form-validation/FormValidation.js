@@ -1,6 +1,7 @@
 import React from "react";
 import useInput from "../../hooks/use-input";
 import EMAIL_REGEX from "../../utils/email-regex";
+import Card from "../UI/Card";
 
 import css from "./FormValidation.module.css";
 
@@ -46,63 +47,59 @@ const FormValidation = () => {
     emailReset();
   };
 
-  const formIsValid =
-    fNameIsValid &&
-    lNameIsValid &&
-    emailIsValid &&
-    fNameIsTouched &&
-    lNameIsTouched &&
-    emailIsTouched;
+  const formIsValid = fNameIsValid && lNameIsValid && emailIsValid;
 
   return (
-    <form>
-      <div className={css["form-control"]}>
-        {!fNameIsValid && fNameIsTouched && (
-          <div className={css["validation-text"]}>{fNameValidationText}</div>
-        )}
-        <label htmlFor="first-name">First Name*</label>
-        <input
-          type="text"
-          name="first-name"
-          id="first-name"
-          onChange={fNameChangeHandler}
-          onBlur={fNameBlurHandler}
-          value={fNameValue}
-        />
-      </div>
-      <div className={css["form-control"]}>
-        {!lNameIsValid && lNameIsTouched && (
-          <div className={css["validation-text"]}>{lNameValidationText}</div>
-        )}
-        <label htmlFor="last-name">Last Name*</label>
-        <input
-          type="text"
-          name="last-name"
-          id="last-name"
-          onChange={lNameChangeHandler}
-          onBlur={lNameBlurHandler}
-          value={lNameValue}
-        />
-      </div>
-      <div className={css["form-control"]}>
-        {!emailIsValid && emailIsTouched && (
-          <div className={css["validation-text"]}>{emailValidationText}</div>
-        )}
-        <label htmlFor="email">Email*</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          onChange={emailChangeHandler}
-          onBlur={emailBlurHandler}
-          value={emailValue}
-        />
-      </div>
-      <button onClick={submitHandler} disabled={!formIsValid}>
-        Submit
-      </button>
-      <div className={css["note"]}>* Required field</div>
-    </form>
+    <Card>
+      <form className={css["form"]}>
+        <div className={css["form-control"]}>
+          <label htmlFor="first-name">First Name*</label>
+          <input
+            type="text"
+            name="first-name"
+            id="first-name"
+            onChange={fNameChangeHandler}
+            onBlur={fNameBlurHandler}
+            value={fNameValue}
+          />
+          {!fNameIsValid && fNameIsTouched && (
+            <div className={css["validation-text"]}>{fNameValidationText}</div>
+          )}
+        </div>
+        <div className={css["form-control"]}>
+          <label htmlFor="last-name">Last Name*</label>
+          <input
+            type="text"
+            name="last-name"
+            id="last-name"
+            onChange={lNameChangeHandler}
+            onBlur={lNameBlurHandler}
+            value={lNameValue}
+          />
+          {!lNameIsValid && lNameIsTouched && (
+            <div className={css["validation-text"]}>{lNameValidationText}</div>
+          )}
+        </div>
+        <div className={css["form-control"]}>
+          <label htmlFor="email">Email*</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            onChange={emailChangeHandler}
+            onBlur={emailBlurHandler}
+            value={emailValue}
+          />
+          {!emailIsValid && emailIsTouched && (
+            <div className={css["validation-text"]}>{emailValidationText}</div>
+          )}
+        </div>
+        <div className={css["note"]}>* Required field</div>
+        <button onClick={submitHandler} disabled={!formIsValid}>
+          Submit
+        </button>
+      </form>
+    </Card>
   );
 };
 

@@ -1,17 +1,17 @@
 import React from "react";
-import css from "./Home.module.css";
+import Container from "../UI/Container";
 
 const Home = () => {
   return (
-    <React.Fragment>
-      <h1>Homework</h1>
+    <Container>
+      <h1>Homework 15</h1>
       <p>Welcome to the webpage for HW15.</p>
       <p>Check out the links in the header of this page for each of the mini-projects.</p>
       <h1>Development Details</h1>
       <p>
         I wrote this as an SPA in React. Most of the DOM manipulations are done through React's
         state management. Please feel free to look at the source code with the browser's "inspect
-        element" tool or by visiting my GirHub repo here:{" "}
+        element" tool or by visiting my GitHub repo here:{" "}
         <a href="https://github.com/bentzen-andy/cis658-hw15-client-side-scripting">
           https://github.com/bentzen-andy/cis658-hw15-client-side-scripting
         </a>
@@ -29,7 +29,7 @@ const Home = () => {
         On the form I used a custom React hook to control the state of the form validation messages.
         Using a custom hook in this way makes the React code a little more readable. The basic idea
         behind this validation is to dynamically check if required fields have been filled in
-        properly. There's also check to make sure the user actually had a chance to click into the
+        properly. There's also a check to make sure the user actually had a chance to click into the
         field before it yells at you with nasty validation text. Additionally, the submit button is
         unclickable until each field is properly filled in. The validation scheme is borrowed
         heavily (but not copied) from this online course in React:{" "}
@@ -49,7 +49,7 @@ const Home = () => {
         the styles. Nothing too complex here. The button sits in a div, and I just set the button to
         have a "relative" position.
       </p>
-    </React.Fragment>
+    </Container>
   );
 };
 
