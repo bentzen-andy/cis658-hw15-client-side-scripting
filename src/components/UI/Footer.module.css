@@ -1,0 +1,12 @@
+.footer {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-content: space-between;
+  width: 100%;
+}
+
+.footer li {
+  display: block;
+  list-style: none;
+}

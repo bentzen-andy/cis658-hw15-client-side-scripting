@@ -1,0 +1,19 @@
+.app {
+  text-align: center;
+  display: grid;
+  grid-template-rows: 5rem auto 5rem;
+  grid-template-areas: "header" "main" "footer";
+  height: 100vh;
+}
+
+.app header {
+  grid-area: header;
+}
+
+.app main {
+  grid-area: main;
+}
+
+.app footer {
+  grid-area: footer;
+}

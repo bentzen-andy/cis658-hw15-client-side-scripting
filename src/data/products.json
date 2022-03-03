@@ -1,0 +1,38 @@
+[
+  {
+    "sku": "437542",
+    "title": "Screw Driver, Phillips Head",
+    "price": "$9.99",
+    "inStock": true
+  },
+  {
+    "sku": "700907",
+    "title": "Drill Bit Set",
+    "price": "$19.99",
+    "inStock": true
+  },
+  {
+    "sku": "183042",
+    "title": "Hammer, Claw",
+    "price": "$9.99",
+    "inStock": true
+  },
+  {
+    "sku": "131615",
+    "title": "Saw, Hand",
+    "price": "$12.99",
+    "inStock": true
+  },
+  {
+    "sku": "265470",
+    "title": "Saw, Power",
+    "price": "$79.99",
+    "inStock": false
+  },
+  {
+    "sku": "229385",
+    "title": "Nails, 100ct",
+    "price": "$12.99",
+    "inStock": true
+  }
+]

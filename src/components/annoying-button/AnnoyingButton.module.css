@@ -1,0 +1,12 @@
+.annoying-btn {
+  width: 100%;
+  height: 100%;
+}
+
+.annoying-btn button {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 8rem;
+  height: 2rem;
+}

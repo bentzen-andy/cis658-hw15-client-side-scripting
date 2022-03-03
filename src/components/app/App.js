@@ -1,23 +1,24 @@
 import React from "react";
-import Nav from "../nav/Nav";
+import Nav from "../UI/Nav";
 import Home from "../home/Home";
 import DataGrid from "../datagrid/DataGrid";
 import FormValidation from "../form-validation/FormValidation";
 import AnnoyingButton from "../annoying-button/AnnoyingButton";
 import PageNotFound from "../404/PageNotFound";
-import Footer from "../footer/Footer";
+import Footer from "../UI/Footer";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import "./App.css";
+import css from "./App.module.css";
 
-function App() {
+const App = () => {
   return (
-    <React.StrictMode>
-      <div>hello world.......</div>
-      <Router>
-        <div className="app">
+    <Router>
+      <div className={css["app"]}>
+        <header id="top">
           <Nav />
+        </header>
+        <main>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/mini-project1" element={<DataGrid />} />
@@ -25,11 +26,13 @@ function App() {
             <Route path="/mini-project3" element={<AnnoyingButton />} />
             <Route path="/*" element={<PageNotFound />} />
           </Routes>
+        </main>
+        <footer>
           <Footer />
-        </div>
-      </Router>
-    </React.StrictMode>
+        </footer>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
