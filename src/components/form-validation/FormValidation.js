@@ -7,24 +7,17 @@ import css from "./FormValidation.module.css";
 
 const FormValidation = () => {
   const {
-    value: fNameValue,
-    isValid: fNameIsValid,
-    isTouched: fNameIsTouched,
-    validationText: fNameValidationText,
-    valueChangeHandler: fNameChangeHandler,
-    valueBlurHandler: fNameBlurHandler,
-    reset: fNameReset,
-  } = useInput("Field must not be blank", (value) => value.length > 0);
-
-  const {
-    value: lNameValue,
-    isValid: lNameIsValid,
-    isTouched: lNameIsTouched,
-    validationText: lNameValidationText,
-    valueChangeHandler: lNameChangeHandler,
-    valueBlurHandler: lNameBlurHandler,
-    reset: lNameReset,
-  } = useInput("Field must not be blank", (value) => value.length > 0);
+    value: usernameValue,
+    isValid: usernameIsValid,
+    isTouched: usernameIsTouched,
+    validationText: usernameValidationText,
+    valueChangeHandler: usernameChangeHandler,
+    valueBlurHandler: usernameBlurHandler,
+    reset: usernameReset,
+  } = useInput(
+    "User name must be a minimum of 5 characters and a maximum of 10 characters",
+    (value) => value.length >= 5 && value.length <= 10
+  );
 
   const {
     value: emailValue,
@@ -36,48 +29,47 @@ const FormValidation = () => {
     reset: emailReset,
   } = useInput("Not a valid email", (value) => value.toLowerCase().match(EMAIL_REGEX) !== null);
 
+  const {
+    value: passwordValue,
+    isValid: passwordIsValid,
+    isTouched: passwordIsTouched,
+    validationText: passwordValidationText,
+    valueChangeHandler: passwordChangeHandler,
+    valueBlurHandler: passwordBlurHandler,
+    reset: passwordReset,
+  } = useInput(
+    "Invalid password. Must be a minimum of 10 characters",
+    (value) => value.length >= 10
+  );
+
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(fNameValue);
-    console.log(lNameValue);
+    console.log(usernameValue);
     console.log(emailValue);
+    console.log(passwordValue);
     console.log(event.target.value);
-    fNameReset();
-    lNameReset();
+    usernameReset();
     emailReset();
+    passwordReset();
   };
 
-  const formIsValid = fNameIsValid && lNameIsValid && emailIsValid;
+  const formIsValid = usernameIsValid && emailIsValid && passwordIsValid;
 
   return (
     <Card>
       <form className={css["form"]}>
         <div className={css["form-control"]}>
-          <label htmlFor="first-name">First Name*</label>
+          <label htmlFor="username">Username*</label>
           <input
             type="text"
-            name="first-name"
-            id="first-name"
-            onChange={fNameChangeHandler}
-            onBlur={fNameBlurHandler}
-            value={fNameValue}
+            name="username"
+            id="username"
+            onChange={usernameChangeHandler}
+            onBlur={usernameBlurHandler}
+            value={usernameValue}
           />
-          {!fNameIsValid && fNameIsTouched && (
-            <div className={css["validation-text"]}>{fNameValidationText}</div>
-          )}
-        </div>
-        <div className={css["form-control"]}>
-          <label htmlFor="last-name">Last Name*</label>
-          <input
-            type="text"
-            name="last-name"
-            id="last-name"
-            onChange={lNameChangeHandler}
-            onBlur={lNameBlurHandler}
-            value={lNameValue}
-          />
-          {!lNameIsValid && lNameIsTouched && (
-            <div className={css["validation-text"]}>{lNameValidationText}</div>
+          {!usernameIsValid && usernameIsTouched && (
+            <div className={css["validation-text"]}>{usernameValidationText}</div>
           )}
         </div>
         <div className={css["form-control"]}>
@@ -92,6 +84,20 @@ const FormValidation = () => {
           />
           {!emailIsValid && emailIsTouched && (
             <div className={css["validation-text"]}>{emailValidationText}</div>
+          )}
+        </div>
+        <div className={css["form-control"]}>
+          <label htmlFor="password">Password*</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            onChange={passwordChangeHandler}
+            onBlur={passwordBlurHandler}
+            value={passwordValue}
+          />
+          {!passwordIsValid && passwordIsTouched && (
+            <div className={css["validation-text"]}>{passwordValidationText}</div>
           )}
         </div>
         <div className={css["note"]}>* Required field</div>
