@@ -1,5 +1,4 @@
 .app {
-  text-align: center;
   display: grid;
   grid-template-rows: 5rem auto 5rem;
   grid-template-areas: "header" "main" "footer";
