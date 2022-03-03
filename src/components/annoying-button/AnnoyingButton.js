@@ -3,8 +3,12 @@ import css from "./AnnoyingButton.module.css";
 
 const AnnoyingButton = () => {
   const getRandomPct = () => {
-    let rand = 100.0 * Math.random();
-    return `${rand}%`;
+    let max = 0.9;
+    let min = 0.1;
+    let rand = Math.random();
+    let num = (max - min) * rand + min;
+    num *= 100;
+    return `${num}%`;
   };
 
   const mouseMoveHandler = (event) => {
